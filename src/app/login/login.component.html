@@ -1,10 +1,16 @@
-<form>  
+<form (ngSubmit)="datasubmit(myData)">  
   <h1 style="color:indianred">Login Form</h1>
-  
-  <label>User Name:</label>
-  <input ngModel type="text" id="username" name="username" placeholder="User Name">
+  <mat-form-field>
+    <input ngModel #username = "ngModel" name="username" matInput placeholder="Username" id="username" type="text" [(ngModel)]="myData.username" required>    
+    <mat-error>Field Required !</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input ngModel #password = "ngModel" name="password" matInput placeholder="Password" id="password" type="password" [(ngModel)]="myData.password" required>
+    <mat-error>Field Required !</mat-error>
+  </mat-form-field>
   <br><br>
-  <label>Password :</label>
-  
+  <!-- <a routerLink = "/homepage"><button type="submit" mat-raised-button color="accent">Submit</button></a> -->
+  <button type="submit" mat-raised-button color="accent">Submit</button>
 </form>
-
+<!-- <p>{{data.username}}</p> -->
