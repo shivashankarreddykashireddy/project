@@ -13,4 +13,15 @@
   <!-- <a routerLink = "/homepage"><button type="submit" mat-raised-button color="accent">Submit</button></a> -->
   <button type="submit" mat-raised-button color="accent">Submit</button>
 </form>
-<!-- <p>{{data.username}}</p> -->
+<!-- <p>user name : {{data11.username}}</p>
+<p>password : {{data11.password}}</p> -->
+<!-- <p>{{data11 | json}}</p> -->
+<table>
+  <th>username</th>
+  <th>password</th>
+  <tr *ngFor = "let x of data11">
+    <td>{{x.username}}</td>
+    <td>{{x.password}}</td>
+  </tr>
+</table>
+<!-- <h1>{{this.data11 | json}}</h1> -->

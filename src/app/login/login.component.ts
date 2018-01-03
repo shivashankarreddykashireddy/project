@@ -1,7 +1,8 @@
+import { Http , Response } from '@angular/http';
 import { MatInputModule } from '@angular/material/input';
 import { LoginDetailsService } from './../service/login-details.service';
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -10,23 +11,30 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   myData = {};
-  data : any;
+  data11 : any;
+  username1 : any;
+  password1: any;
   constructor(private loginservice: LoginDetailsService , private router: Router ) { 
-    // console.log("Hiiiiiiiiiiiiiiiiiiii");
-    this.data = this.loginservice.loginData();     
+    this.loginservice.loginData().subscribe(res => this.data11 = res, err => console.log(err));             
   }
-  datasubmit(myData) {
-    console.log('data --', myData);
-    console.log('username is --', myData.username);
-    console.log('password is --', myData.password);
-  
-    if(this.data.username == myData.username && this.data.password == myData.password){
+    
+datasubmit(myData) {
+  console.log('data --', myData);
+  console.log('username is --', myData.username);
+  console.log('password is --', myData.password);
+  console.log("11111111111" , this.username1);
+  // console.log('this.data11 --', this.data11.username);
+
+  if(myData.username == this.data11.username && myData.password == this.data11.password ){
       this.router.navigate(['/homepage']);
     }
-    else{      
+    // if(myData.username == "" && myData.password == ""){      
+    //   alert("Enter Data !");      
+    // }
+    else {
       alert("Wrong Data Entered !");
     }
-    
+
   }
 
   ngOnInit() {    
